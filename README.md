@@ -32,28 +32,28 @@ Completed the Data transformation in Power Query and the dataset loaded into Mic
 
 Call Centre Trends dataset is give table named:
 
-     Call Center trends dataset which has 10 columns and 5000 rows of observation. Call center trends table rename to performance.
+Call Center trends dataset which has 10 columns and 5000 rows of observation. Call center trends table rename to performance.
      
 Data Cleaning for the dataset was done in the power query editor as follows:
 
-     Removed Unnecessary columns and rows.
+Removed Unnecessary columns and rows.
      
-     Removed Duplicates and NULL Values.
+Removed Duplicates and NULL Values.
      
-     Each of the columns in the table were validated to have the correct data type.
+Each of the columns in the table were validated to have the correct data type.
 
 # Data Modeling
-     After Data Prepration dataset was cleaned and transformed, it was ready to the data modeled.
+After Data Prepration dataset was cleaned and transformed, it was ready to the data modeled.
      
-     ![image](https://github.com/murekarmansi/PWC_Task-1_Call_Center_Trends_Dashboards/assets/135413496/ada95286-b899-4baa-8856-33c6e719d35a)
+![image](https://github.com/murekarmansi/PWC_Task-1_Call_Center_Trends_Dashboards/assets/135413496/ada95286-b899-4baa-8856-33c6e719d35a)
 
-     ![image](https://github.com/murekarmansi/PWC_Task-1_Call_Center_Trends_Dashboards/assets/135413496/cf73febd-6170-468b-9e88-37a349fc9a74)
+![image](https://github.com/murekarmansi/PWC_Task-1_Call_Center_Trends_Dashboards/assets/135413496/cf73febd-6170-468b-9e88-37a349fc9a74)
 
 # Data Analysis (DAX):
 
 Measures used in all visualization are:
 
-Average of seed of answerd = AVERAGE('call centre trends'[Speed of answer in seconds])
+Average of speed of answerd = AVERAGE('call centre trends'[Speed of answer in seconds])
 
 Average of statisfaction = AVERAGE('call centre trends'[Satisfaction rating])
 
@@ -63,15 +63,15 @@ Overall Customer Satisfation = DIVIDE([Possitive satisfation rating],[Count sati
 
 Possitive satisfation rating = CALCULATE(COUNT('call centre trends'[Satisfaction rating]),FILTER('call centre trends','call centre trends'[Satisfaction rating] IN {4,5}))
 
-resolved calls = COUNTX(FILTER('call centre trends','call centre trends'[Resolved] = "Yes"), 'call centre trends'[Resolved])
+Issue Resolved  = COUNTX(FILTER('call centre trends','call centre trends'[Resolved] = "Yes"), 'call centre trends'[Resolved])
 
-Unresolved calls = COUNTX(FILTER('call centre trends','call centre trends'[Resolved] = "No"), 'call centre trends'[Resolved])
+Issue Not Unresolved  = COUNTX(FILTER('call centre trends','call centre trends'[Resolved] = "No"), 'call centre trends'[Resolved])
 
-total calls = CALCULATE('Table'[total calls answered] + 'Table'[total calls unanswred])
+Total calls = CALCULATE('Table'[total calls answered] + 'Table'[total calls unanswred])
 
-total calls answered = COUNTX(FILTER('call centre trends','call centre trends'[Answered (Y/N)] = "Yes"),'call centre trends'[Answered (Y/N)])
+Total calls Answered = COUNTX(FILTER('call centre trends','call centre trends'[Answered (Y/N)] = "Yes"),'call centre trends'[Answered (Y/N)])
 
-total calls unanswred =COUNTX(FILTER('call centre trends','call centre trends'[Answered (Y/N)] = "No"), 'call centre trends'[Answered (Y/N)])
+Total calls Rejected  =COUNTX(FILTER('call centre trends','call centre trends'[Answered (Y/N)] = "No"), 'call centre trends'[Answered (Y/N)])
 
 # Data Visualization (Dashboard) :
 Data visualization for the data analysis (DAX) was done in Microsoft Power BI Desktop:
